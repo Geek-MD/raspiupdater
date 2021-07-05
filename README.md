@@ -10,4 +10,5 @@ Things to do after dowloading script
 6. Reboot so changes take effect
 
 The cron command will run the script every wednesday and sunday at 0:00, exporting result to the file sysupdater.log. This file is replaced everytime the script is executed, so you can check when was the last time the script was executed by opening the log file onto an editor like nano or vi.
-Obviously you can change the frequency of system update modifying the cron command. I recomend https://crontab.guru
+
+Obviously you can change the frequency of system update modifying the cron command. I recomend https://crontab.guru to do that.
