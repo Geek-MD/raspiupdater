@@ -1,4 +1,4 @@
-# sysupdater
+# raspiupdater
 This is a bash script to automate Raspberry Pi packages update. Last update to the script, also updates python packages.
 
 Things to do after dowloading script
