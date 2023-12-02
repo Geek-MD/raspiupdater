@@ -1,5 +1,5 @@
 # raspiupdater
-This is a bash script that allows you to automate Raspberry Pi packages update, updating not only system files but also updating python packages.
+This is a bash script that allows you to automate Raspberry Pi packages update.
 
 Things to do after dowloading script
 1. Make shell script executable runing "chmod u+x raspiupdater.sh"
