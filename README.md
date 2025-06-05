@@ -1,14 +1,61 @@
-# raspiupdater
-This is a bash script that allows you to automate Raspberry Pi packages update.
+# Raspiupdater
 
-Things to do after dowloading script
-1. Make shell script executable runing "chmod u+x raspiupdater.sh"
-2. Edit cron with "crontab -e" command and add the subsequent line at the end.
-3. 0 3 * * 0,3 bash /<abs_path>/raspiupdater.sh > /<abs_path>/raspiupdater.log replacing *<abs_path>* with the location where you stored *raspiupdater.sh*
-4. Save cron using Ctrl-O
-5. Exit editor with Ctrl-X
-6. Reboot so changes take effect
+This script automates the update and maintenance process for **Raspbian** on a Raspberry Pi.
 
-The cron command will run the script every wednesday and sunday at 3:00, exporting result to the file raspiupdater.log. This file is replaced everytime the script is executed, so you can check when was the last time the script was executed by opening the log file onto an editor like nano or vi.
+## 📄 Description
 
-Obviously you can change change the time interval at wich system updates, modifying the cron command. I recomend https://crontab.guru to do that.
+The script performs the following actions in sequence:
+
+1. Prints the current date and time.  
+2. Runs `apt-get update` to refresh the package list.  
+3. Runs `apt-get upgrade -y` to install available upgrades.  
+4. Runs `apt-get full-upgrade -y` to apply all upgrades, including those requiring removal of obsolete packages.  
+5. Runs `apt-get autoclean -y` to clean up outdated package files.  
+6. Runs `apt-get autoremove -y` to remove unneeded packages.  
+
+## 📥 Download
+
+Clone this repository with:
+
+    git clone https://github.com/Geek-MD/raspiupdater.git
+    cd raspiupdater
+
+## ⚠️ Requirements
+
+- A **Debian/Raspbian-based** operating system.  
+- Superuser privileges (`sudo`).  
+
+## 🚀 Usage
+
+Make the script executable:
+
+    chmod +x raspiupdater.sh
+
+Run the script:
+
+    ./raspiupdater.sh
+
+Alternatively, run it with `bash`:
+
+    bash raspiupdater.sh
+
+## ⏰ Automate with cron
+
+To run the script automatically every **Sunday and Wednesday at 3:00 AM**, add the following line to your crontab:
+
+    0 3 * * 0,3 bash ~/raspiupdater/raspiupdater.sh > ~/raspiupdater/raspiupdater.log
+
+You can edit the crontab with:
+
+    crontab -e
+
+This will keep a log of each execution in `raspiupdater.log` in your home directory.
+
+## 🛠 Recommendations
+
+- Run this script periodically to keep your system updated and clean.  
+- Monitor the log file to verify successful updates.
+
+## 📌 Note
+
+This script requires an internet connection and may take several minutes depending on the number of available updates.
