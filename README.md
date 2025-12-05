@@ -1,3 +1,17 @@
+# ⚠️ Warning
+
+**This repository has been archived and is no longer maintained.**  
+To keep your Raspberry Pi automatically and safely updated, it is recommended to use the official Debian/Raspbian tools:
+
+```bash
+sudo apt install unattended-upgrades
+sudo dpkg-reconfigure -plow unattended-upgrades
+```
+
+These utilities enable automatic system updates without the need for external scripts.
+
+---
+
 # Raspiupdater
 
 This script automates the update and maintenance process for **Raspbian** on a
@@ -19,8 +33,10 @@ The script performs the following actions in sequence:
 
 Clone this repository with:
 
-    git clone https://github.com/Geek-MD/raspiupdater.git
-    cd raspiupdater
+```bash
+git clone https://github.com/Geek-MD/raspiupdater.git
+cd raspiupdater
+```
 
 ## ⚠️ Requirements
 
@@ -31,26 +47,36 @@ Clone this repository with:
 
 Make the script executable:
 
-    chmod +x raspiupdater.sh
+```bash
+chmod +x raspiupdater.sh
+```
 
 Run the script:
 
-    ./raspiupdater.sh
+```bash
+./raspiupdater.sh
+```
 
 Alternatively, run it with `bash`:
 
-    bash raspiupdater.sh
+```bash
+bash raspiupdater.sh
+```
 
 ## ⏰ Automate with cron
 
 To run the script automatically every **Sunday and Wednesday at 3:00 AM**, add
 the following line to your crontab:
 
-    0 3 * * 0,3 bash ~/raspiupdater/raspiupdater.sh > ~/raspiupdater/raspiupdater.log
+```bash
+0 3 * * 0,3 bash ~/raspiupdater/raspiupdater.sh > ~/raspiupdater/raspiupdater.log
+```
 
 You can edit the crontab with:
 
-    crontab -e
+```bash
+crontab -e
+```
 
 This will keep a log of each execution in `raspiupdater.log` in your home
 directory.
